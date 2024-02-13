@@ -77,9 +77,10 @@ export const SignUp = () => {
                   Uplode Your fees recipt
                 </p>
                 <div className="h-10 w-full bg-slate-400 mb-4 px-10 py-2">
-                  <button className="bg-white  text-black font-bold  px-4 rounded">
-                    Choose file
-                  </button>
+                  <input
+                    type="file"
+                    className="bg-white  text-black font-bold  px-4 rounded"
+                  />
                 </div>
                 <div className="mb-4  px-32">
                   <button className="bg-red-100 hover:bg-red-500 text-black font-bold  px-5 rounded">
