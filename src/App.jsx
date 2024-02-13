@@ -1,8 +1,16 @@
+import { SignIn } from "./components/SignIn";
 import { SignUp } from "./components/SignUp";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
-  <div className="text-white h-[100vh] flex justify-center items-center bg-slate-500"></div>;
-  return <SignUp />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/register" element={<SignUp />}></Route>
+        <Route path="/login" element={<SignIn />}></Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
