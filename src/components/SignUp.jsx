@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const SignUp = () => {
   return (
     <>
@@ -17,9 +19,14 @@ export const SignUp = () => {
               </h1>
             </div>
             <div className="mb-4  px-32 pt-14 pl-52">
-              <button className="bg-red-100 hover:bg-red-400 text-black font-bold  px-5 rounded">
-                Sign In
-              </button>
+              <div>
+                <Link
+                  to="/login"
+                  className="bg-red-100 hover:bg-red-400 text-black font-bold  px-5 rounded"
+                >
+                  Sign In
+                </Link>
+              </div>
             </div>
           </div>
 
