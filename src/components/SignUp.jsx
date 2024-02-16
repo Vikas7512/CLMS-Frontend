@@ -10,9 +10,11 @@ export const SignUp = () => {
     stream: "",
   });
 
-  const createUser = async () => {
-    const userResponse = await axios.post("http://localhost:3000/users", user);
-    console.log(userResponse);
+  const createUser = () => {
+    axios
+      .post("http://localhost:3000/users", user)
+      .then((res) => alert(res))
+      .catch((error) => alert(error.response.data));
   };
 
   console.log(user);
@@ -53,85 +55,84 @@ export const SignUp = () => {
           </div>
 
           {/* Right side with input div */}
-          <form method="POST">
-            <div className="absolute right-0 top-0 h-full w-1/2 overflow-hidden bg-white rounded-tr rounded-br">
-              <div className="flex flex-col items-center justify-center p-14">
-                <p className="text-black font-bold text-4xl mb-4">
-                  Create Account
-                </p>
-                <div className="h-10 w-full bg-slate-400 mb-4">
-                  <input
-                    type="text"
-                    placeholder="Enter your Name"
-                    name="name"
-                    className=" w-full h-12 bg-black border-none outline-none rounded-md px-4 text-white"
-                    value={user.name}
-                    onChange={handleInputs}
-                  />
-                </div>
-                <div className="h-10 w-full bg-slate-400 mb-4">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Enter your Email"
-                    className=" w-full h-12 bg-black border-none outline-none rounded-md px-4 text-white"
-                    value={user.email}
-                    onChange={handleInputs}
-                  />
-                </div>
-                <div className="h-10 w-full bg-slate-400 mb-4">
-                  <input
-                    type="password"
-                    placeholder="Enter your Password"
-                    name="password"
-                    className="w-full h-12  bg-black  border-none outline-none rounded-md px-4 text-white"
-                    value={user.password}
-                    onChange={handleInputs}
-                  />
-                </div>
 
-                <div className="h-10 w-full bg-slate-400 mb-4">
+          <div className="absolute right-0 top-0 h-full w-1/2 overflow-hidden bg-white rounded-tr rounded-br">
+            <div className="flex flex-col items-center justify-center p-14">
+              <p className="text-black font-bold text-4xl mb-4">
+                Create Account
+              </p>
+              <div className="h-10 w-full bg-slate-400 mb-4">
+                <input
+                  type="text"
+                  placeholder="Enter your Name"
+                  name="name"
+                  className=" w-full h-12 bg-black border-none outline-none rounded-md px-4 text-white"
+                  value={user.name}
+                  onChange={handleInputs}
+                />
+              </div>
+              <div className="h-10 w-full bg-slate-400 mb-4">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your Email"
+                  className=" w-full h-12 bg-black border-none outline-none rounded-md px-4 text-white"
+                  value={user.email}
+                  onChange={handleInputs}
+                />
+              </div>
+              <div className="h-10 w-full bg-slate-400 mb-4">
+                <input
+                  type="password"
+                  placeholder="Enter your Password"
+                  name="password"
+                  className="w-full h-12  bg-black  border-none outline-none rounded-md px-4 text-white"
+                  value={user.password}
+                  onChange={handleInputs}
+                />
+              </div>
+
+              <div className="h-10 w-full bg-slate-400 mb-4">
+                <input
+                  type="number"
+                  name="phone_no"
+                  placeholder="Phone No."
+                  className=" w-full h-12 bg-black  border-none outline-none rounded-md px-4 text-white"
+                  value={user.phone_no}
+                  onChange={handleInputs}
+                />
+              </div>
+              <div className="h-10 w-full bg-slate-400 mb-4">
+                <input
+                  name="stream"
+                  type="text"
+                  placeholder="Stream"
+                  className=" w-full h-12 bg-black border-none outline-none rounded-md px-4 text-white"
+                  value={user.stream}
+                  onChange={handleInputs}
+                />
+              </div>
+              <div className="h-28 w-full  mb-4">
+                <p className="text-black font-bold text-xl mb-4 px-14">
+                  Uplode Your fees recipt
+                </p>
+                <div className="h-10 w-full bg-slate-400 mb-4 px-10 py-2">
                   <input
-                    type="number"
-                    name="phone_no"
-                    placeholder="Phone No."
-                    className=" w-full h-12 bg-black  border-none outline-none rounded-md px-4 text-white"
-                    value={user.phone_no}
-                    onChange={handleInputs}
+                    type="file"
+                    className="bg-white  text-black font-bold  px-4 rounded"
                   />
                 </div>
-                <div className="h-10 w-full bg-slate-400 mb-4">
-                  <input
-                    name="stream"
-                    type="text"
-                    placeholder="Stream"
-                    className=" w-full h-12 bg-black border-none outline-none rounded-md px-4 text-white"
-                    value={user.stream}
-                    onChange={handleInputs}
-                  />
-                </div>
-                <div className="h-28 w-full  mb-4">
-                  <p className="text-black font-bold text-xl mb-4 px-14">
-                    Uplode Your fees recipt
-                  </p>
-                  <div className="h-10 w-full bg-slate-400 mb-4 px-10 py-2">
-                    <input
-                      type="file"
-                      className="bg-white  text-black font-bold  px-4 rounded"
-                    />
-                  </div>
-                  <div className="mb-4  px-32">
-                    <button
-                      className="bg-red-100 hover:bg-red-500 text-black font-bold  px-5 rounded"
-                      onClick={() => createUser()}
-                    >
-                      Sign Up
-                    </button>
-                  </div>
+                <div className="mb-4  px-32">
+                  <button
+                    className="bg-red-100 hover:bg-red-500 text-black font-bold  px-5 rounded"
+                    onClick={() => createUser()}
+                  >
+                    Sign Up
+                  </button>
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </>
