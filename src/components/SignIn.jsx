@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export const SignIn = () => {
   return (
@@ -47,12 +47,12 @@ export const SignIn = () => {
               </h1>
             </div>
             <div className="mb-4  px-32 pt-14 pl-52">
-              <Link
+              {/* <Link
                 to="/register"
                 className="bg-red-100 hover:bg-red-400 text-black font-bold  px-5 rounded"
               >
                 Sign Up
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

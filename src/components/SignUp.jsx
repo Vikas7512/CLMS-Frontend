@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 export const SignUp = () => {
   const [user, setuser] = useState({
     name: "",
@@ -9,12 +10,16 @@ export const SignUp = () => {
     stream: "",
   });
 
-  let name, value;
+  const createUser = async () => {
+    const userResponse = await axios.post("http://localhost:3000/users", user);
+    console.log(userResponse);
+  };
 
+  console.log(user);
   const handleInputs = (e) => {
     console.log(e);
-    name = e.target.name;
-    value = e.target.value;
+    const name = e.target.name;
+    const value = e.target.value;
     setuser({ ...user, [name]: value });
   };
 
@@ -88,10 +93,10 @@ export const SignUp = () => {
                 <div className="h-10 w-full bg-slate-400 mb-4">
                   <input
                     type="number"
-                    name="phnoe_no"
+                    name="phone_no"
                     placeholder="Phone No."
                     className=" w-full h-12 bg-black  border-none outline-none rounded-md px-4 text-white"
-                    value={user.phnoe_no}
+                    value={user.phone_no}
                     onChange={handleInputs}
                   />
                 </div>
@@ -118,7 +123,7 @@ export const SignUp = () => {
                   <div className="mb-4  px-32">
                     <button
                       className="bg-red-100 hover:bg-red-500 text-black font-bold  px-5 rounded"
-                      // onClick={PostData}
+                      onClick={() => createUser()}
                     >
                       Sign Up
                     </button>
