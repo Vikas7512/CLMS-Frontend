@@ -13,7 +13,7 @@ export const SignUp = () => {
   const createUser = () => {
     axios
       .post("http://localhost:3000/users", user)
-      .then((res) => alert(res))
+      .then((res) => alert(res.data))
       .catch((error) => alert(error.response.data));
   };
 
