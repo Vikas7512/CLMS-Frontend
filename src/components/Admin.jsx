@@ -1,15 +1,18 @@
+import { Dashboard } from "./Dashboard";
+import { Link } from "react-router-dom";
+
+
 export const Admin = () => {
   return (
-<html classNameName="h-full">
-  <body className="dark:bg-slate-900 bg-gray-100 flex h-full items-center py-16">
-    <main className="w-full max-w-md mx-auto p-6">
-      <div classNameName="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
-        <div className="p-4 sm:p-7">
+    <div className="">
+      <div className=" flex items-center py-16">
+        <form className="w-full max-w-md mx-auto p-6">
+          <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700 h-full">
+            <div className="p-4 sm:p-7 h-full">
           <div className="text-center">
             <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">Admin Login</h1>
           </div>
           <div className="mt-5">
-            <div className="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-[1_1_0%] before:border-t before:border-gray-200 before:me-6 after:flex-[1_1_0%] after:border-t after:border-gray-200 after:ms-6 dark:text-gray-500 dark:before:border-gray-600 dark:after:border-gray-600">Or</div>
             <form>
               <div className="grid gap-y-4">
                 <div>
@@ -27,7 +30,6 @@ export const Admin = () => {
                 <div>
                   <div className="flex justify-between items-center">
                     <label for="password" className="block text-sm mb-2 dark:text-white">Password</label>
-                    <a className="text-sm text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="../examples/html/recover-account.html">Forgot password?</a>
                   </div>
                   <div className="relative">
                     <input type="password" id="password" name="password" className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required aria-describedby="password-error"/>
@@ -47,14 +49,28 @@ export const Admin = () => {
                     <label For="remember-me" className="text-sm dark:text-white">Remember me</label>
                   </div>
                 </div>
-                <button type="submit" classNameName="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Sign in</button>
-              </div>
+                <div className=" px-36">
+
+                <Link to="/Dashboard"> 
+                <div className="bg-white inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent  disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600  ">
+
+                <button 
+  type="submit" 
+  className=" inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent  text-gray-950  hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+>
+  Sign in
+</button>
+
+                </div>
+                </Link>
+                </div>
+                </div>
             </form>
             </div>
         </div>
       </div>
-    </main>
-  </body>
-</html>  
+    </form>
+  </div>
+</div>  
 );
 };
