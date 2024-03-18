@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 export const Dashboard = () => {
   return (
     <div className="fixed inset-0 z-20 transition-opacity  flex lg:grid-cols-5">
@@ -283,11 +284,13 @@ export const Dashboard = () => {
                     />
                   </button>
                   <div
+                    // eslint-disable-next-line react/no-unknown-property
                     x-show="dropdownOpen"
                     className="absolute right-0 z-10 w-48 mt-2 overflow-hidden bg-white rounded-md shadow-xl"
                   >
                     {/* <!-- Dropdown content goes here --> */}
                     <div
+                      // eslint-disable-next-line react/no-unknown-property
                       x-show="dropdownOpen"
                       className="absolute right-0 z-10 w-48 mt-2 overflow-hidden bg-white rounded-md shadow-xl"
                     >
@@ -434,9 +437,7 @@ export const Dashboard = () => {
                   </div>
 
                   <div className="mx-5">
-                    <h4 className="text-2xl font-semibold text-gray-700">
-                      83
-                    </h4>
+                    <h4 className="text-2xl font-semibold text-gray-700">83</h4>
                     <div className="text-gray-500">Reguest for new book </div>
                   </div>
                 </div>
@@ -467,10 +468,11 @@ export const Dashboard = () => {
                   </div>
 
                   <div className="mx-5">
-                    <h4 className="text-2xl font-semibold text-gray-700">
-                      25
-                    </h4>
-                    <div className="text-gray-500"> Request for return book</div>
+                    <h4 className="text-2xl font-semibold text-gray-700">25</h4>
+                    <div className="text-gray-500">
+                      {" "}
+                      Request for return book
+                    </div>
                   </div>
                 </div>
               </div>
@@ -488,13 +490,13 @@ export const Dashboard = () => {
                         d="M6.99998 11.2H21L22.4 23.8H5.59998L6.99998 11.2Z"
                         fill="currentColor"
                         stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinejoin="round"
                       ></path>
                       <path
                         d="M9.79999 8.4C9.79999 6.08041 11.6804 4.2 14 4.2C16.3196 4.2 18.2 6.08041 18.2 8.4V12.6C18.2 14.9197 16.3196 16.8 14 16.8C11.6804 16.8 9.79999 14.9197 9.79999 12.6V8.4Z"
                         stroke="currentColor"
-                        stroke-width="2"
+                        strokeWidth="2"
                       ></path>
                     </svg>
                   </div>
@@ -503,7 +505,9 @@ export const Dashboard = () => {
                     <h4 className="text-2xl font-semibold text-gray-700">
                       200
                     </h4>
-                    <div className="text-gray-500">Requested For E-Library Card</div>
+                    <div className="text-gray-500">
+                      Requested For E-Library Card
+                    </div>
                   </div>
                 </div>
               </div>
