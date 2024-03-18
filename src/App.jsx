@@ -3,6 +3,7 @@ import { SignUp } from "./components/SignUp";
 import { Home } from "./components/Home";
 import { Admin } from "./components/Admin";
 import { Dashboard } from"./components/Dashboard";
+import { Bookcard } from "./components/Bookcard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<SignIn />}></Route>
         <Route path="/Admin" element={<Admin />}></Route>
         <Route path="/Dashboard" element={<Dashboard />}></Route>
+        <Route path="/Bookcard" element={<Bookcard />}></Route>
       </Routes>
     </BrowserRouter>
   );
