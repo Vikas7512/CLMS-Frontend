@@ -8,12 +8,13 @@ import {
   BookOpenIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 
 const navigation = [
-  { name: "Digital Library", href: "#", current: true, Icon: BookOpenIcon },
-  { name: "Home", href: "#", current: false, Icon: HomeIcon },
-  { name: "E-Books", href: "#", current: false, Icon: BookOpenIcon },
-  { name: "About-Us", href: "#", current: false, Icon: UserGroupIcon },
+  { name: "Digital Library", href: "/", current: true, Icon: BookOpenIcon },
+  { name: "Home", href: "/home", current: false, Icon: HomeIcon },
+  { name: "E-Books", href: "/ebooks", current: false, Icon: BookOpenIcon },
+  { name: "About-Us", href: "aboutus", current: false, Icon: UserGroupIcon },
 ];
 
 function classNames(...classes) {
@@ -21,6 +22,9 @@ function classNames(...classes) {
 }
 
 export default function Header() {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const activeTab = pathname.split("/")[1];
   return (
     <>
       <Disclosure as="nav" className="bg-gray-800">
@@ -49,22 +53,22 @@ export default function Header() {
                   </div>
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4">
-                      {navigation.map(({ name, href, Icon, current }) => (
-                        <a
+                      {navigation.map(({ name, href, Icon }) => (
+                        <Link
                           key={name}
-                          href={href}
+                          to={href}
                           className={classNames(
-                            current
+                            activeTab
                               ? "bg-gray-900 text-white"
                               : "text-gray-300 hover:bg-gray-700 hover:text-white",
                             "rounded-md px-3 py-2 text-sm font-medium"
                           )}
                           style={{ display: "flex", margin: "2px" }}
-                          aria-current={current ? "page" : undefined}
+                          aria-current={activeTab ? "page" : undefined}
                         >
                           <Icon className="block h-5 w-5" aria-hidden="true" />
                           <span className="ml-2">{name}</span>
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -73,12 +77,12 @@ export default function Header() {
                   <button
                     type="button"
                     className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    onClick={() => navigate("/notifications")}
                   >
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
-
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
                     <div>

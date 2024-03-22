@@ -1,17 +1,18 @@
-import { Hamburger } from "../common/Hamburger";
 import { SearchBar } from "../common/SearchBar";
-import { Bookcard } from "../components/Bookcard";
+import BookData from "../custom/bookcard/BookData";
+import { books } from "../utils/constant/books";
+console.log(books);
 
 export const Ebooks = () => {
   return (
     <>
-      <div className=" flex justify-center  w-auto mt-12 h-auto mb-10 ">
+      <div className="flex justify-center my-8">
         <SearchBar />
-        <Hamburger />
       </div>
-
-      <div className="bg-gray-100 w-auto h-auto mx-24 justify-center min-h-screen">
-        <Bookcard />
+      <div className="w-full grid grid-cols-3 grid-flow-row gap-4 ml-24">
+        {books.map((book) => (
+          <BookData key={book.id} book={book} />
+        ))}
       </div>
     </>
   );
