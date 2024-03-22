@@ -8,6 +8,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Footer from "./common/Footer";
 import Header from "./common/Header";
+import { AboutUs } from "./pages/LandingPage/AboutUs";
+import { Ebooks } from "./pages/Ebooks";
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +22,8 @@ function App() {
         <Route path="/Admin" element={<Admin />}></Route>
         <Route path="/Dashboard" element={<Dashboard />}></Route>
         <Route path="/Bookcard" element={<Bookcard />}></Route>
+        <Route path="/ebooks" element={<Ebooks />}></Route>
+        <Route path="/AboutUs" element={<AboutUs />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>

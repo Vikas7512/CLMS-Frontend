@@ -7,7 +7,14 @@ export const Bookcard = () => {
   return (
     <>
       {books.map((book) => (
-        <div key={book.id} className=" flex items-center">
+        <div
+          key={book.id}
+          className=" bg-gray-100 w-auto h-auto mx-24 flex min-h-screen "
+        >
+          <BookData book={book} />
+          <BookData book={book} />
+          <BookData book={book} />
+          <BookData book={book} />
           <BookData book={book} />
           <BookData book={book} />
           <BookData book={book} />
