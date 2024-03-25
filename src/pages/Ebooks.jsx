@@ -1,18 +1,28 @@
-import { SearchBar } from "../common/SearchBar";
+import { useEffect } from "react";
 import BookData from "../custom/bookcard/BookData";
-import { books } from "../utils/constant/books";
-console.log(books);
+import { useState } from "react";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { selectUserDetails } from "../store/auth/selector";
 
 export const Ebooks = () => {
+  const [books, setBooks] = useState([]);
+  const user = useSelector(selectUserDetails);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/books")
+      .then((response) => setBooks(response.data));
+  }, []);
+
   return (
     <>
-      <div className="flex justify-center my-8">
-        <SearchBar />
-      </div>
-      <div className="w-full grid grid-cols-3 grid-flow-row gap-4 ml-24">
-        {books.map((book) => (
-          <BookData key={book.id} book={book} />
-        ))}
+      <div className="w-[100wh] grid grid-cols-3 grid-flow-row gap-4 pl-32">
+        {books &&
+          books.length > 0 &&
+          books.map((book) => (
+            <BookData key={book._id} book={book} user={user} />
+          ))}
       </div>
     </>
   );
