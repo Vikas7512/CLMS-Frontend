@@ -9,6 +9,8 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setAuthUser } from "../store/auth/slice";
 
 const navigation = [
   { name: "Digital Library", href: "/", current: true, Icon: BookOpenIcon },
@@ -24,6 +26,7 @@ function classNames(...classes) {
 export default function Header() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
   const activeTab = pathname.split("/")[1];
   return (
     <>
@@ -140,6 +143,7 @@ export default function Header() {
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
                               )}
+                              onClick={() => dispatch(setAuthUser(""))}
                             >
                               Sign out
                             </a>
