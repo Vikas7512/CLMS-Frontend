@@ -111,7 +111,10 @@ export const SignIn = () => {
             </button>
             <div className="text-sm font-medium text-gray-900 dark:text-white">
               Not registered yet?{" "}
-              <a className="text-blue-600 hover:underline dark:text-blue-500">
+              <a
+                className="text-blue-600 hover:underline dark:text-blue-500"
+                onClick={() => navigate("/register")}
+              >
                 Create account
               </a>
             </div>
